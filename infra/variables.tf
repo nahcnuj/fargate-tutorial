@@ -1,5 +1,6 @@
 variable "profile" {
-  type = string
+  type    = string
+  default = "sandbox"
 }
 
 variable "environment" {
