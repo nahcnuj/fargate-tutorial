@@ -34,6 +34,8 @@ resource "aws_ecs_task_definition" "fargate-tutorial" {
       }
     ]
   )
+
+  execution_role_arn = aws_iam_role.fargate-tutorial_task_execution_role.arn
 }
 
 resource "aws_cloudwatch_log_group" "fargate-tutorial" {
