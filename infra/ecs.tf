@@ -1,6 +1,7 @@
 resource "aws_ecs_service" "fargate-tutorial" {
   name            = var.service
   task_definition = aws_ecs_task_definition.fargate-tutorial.arn
+  cluster         = aws_ecs_cluster.fargate-tutorial.id
   launch_type     = "FARGATE"
 }
 
@@ -36,6 +37,10 @@ resource "aws_ecs_task_definition" "fargate-tutorial" {
   )
 
   execution_role_arn = aws_iam_role.fargate-tutorial_task_execution_role.arn
+}
+
+resource "aws_ecs_cluster" "fargate-tutorial" {
+  name = var.service
 }
 
 resource "aws_cloudwatch_log_group" "fargate-tutorial" {

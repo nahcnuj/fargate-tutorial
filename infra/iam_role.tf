@@ -1,6 +1,7 @@
 resource "aws_iam_role" "fargate-tutorial_task_execution_role" {
   name = "${var.service}_task_execution_role"
   assume_role_policy = jsonencode({
+    Version = "2008-10-17"
     Statement = [
       {
         Action = "sts:AssumeRole"
