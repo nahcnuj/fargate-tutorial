@@ -2,6 +2,8 @@
 
 [Hello, world: The Fargate/Terraform tutorial I wish I had – Section 411](https://section411.com/2019/07/hello-world/)
 
+![infra.svg](./infra/infra.svg)
+
 ## Usage
 
 Configure your credential as `sandbox` profile:
