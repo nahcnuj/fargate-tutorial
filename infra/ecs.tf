@@ -6,6 +6,12 @@ resource "aws_ecs_service" "fargate-tutorial" {
 
   desired_count = 1
 
+  load_balancer {
+    target_group_arn = aws_lb_target_group.fargate-tutorial.arn
+    container_name = var.service
+    container_port = "3000"
+  }
+
   network_configuration {
     assign_public_ip = false
 
