@@ -3,6 +3,11 @@ variable "profile" {
   default = "sandbox"
 }
 
+variable "region" {
+  type    = string
+  default = "ap-northeast-1"
+}
+
 variable "environment" {
   type     = string
   nullable = false
