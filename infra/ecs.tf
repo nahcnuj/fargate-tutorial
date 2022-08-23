@@ -3,6 +3,19 @@ resource "aws_ecs_service" "fargate-tutorial" {
   task_definition = aws_ecs_task_definition.fargate-tutorial.arn
   cluster         = aws_ecs_cluster.fargate-tutorial.id
   launch_type     = "FARGATE"
+
+  network_configuration {
+    assign_public_ip = false
+
+    security_groups = [
+      aws_security_group.egress_all.id,
+      aws_security_group.ingress_app.id,
+    ]
+
+    subnets = [
+      aws_subnet.private_a.id,
+    ]
+  }
 }
 
 resource "aws_ecs_task_definition" "fargate-tutorial" {
